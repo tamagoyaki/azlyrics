@@ -9,7 +9,7 @@ URL=http://www.azlyrics.com/lyrics
 ALLOWED="sed s/[^a-zA-Z0-9<>]//g"
 TOLOWER="tr A-Z a-z"
 
-list=`grep '<Artist>\|<Name>' | $ALLOWED | $TOLOWER`
+list=`grep '<Artist>\|<Name>' | sed 's/([^)]*)//' | $ALLOWED | $TOLOWER/`
 
 for str in $list; do
     tag=`echo $str | sed 's/<\([^>]*\)>.*/\1/'`

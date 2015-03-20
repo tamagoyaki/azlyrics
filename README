@@ -1,0 +1,23 @@
+REQUIREMENT
+-----------
+
+'audio.cdindex' - CD index file which is created automatically, when you do
+		  "wodim" or something.
+
+
+
+USAGE
+-----
+
+To make URL of azlyrics.com format.
+> $ cat audio.cdindex | ./azlrcs-url.sh
+or 
+> $ cat audio.cdindex | ./azlrcs-url.sh > url.list
+
+
+Confirm the URLs of which you wanted. Then do as below to download htmlfiles.
+> $ cat url.list | ./azlrcs-dl.sh
+
+
+Then, to extract lyrics from htmlfile.
+> $ ls *.html | ./azlrcs-txt.sh
