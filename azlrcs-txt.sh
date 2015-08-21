@@ -7,14 +7,13 @@
 #   The htmlfile must come from azlyrics.com
 #
 
-FROM='<!-- start of lyrics -->'
-TO='<!-- end of lyrics -->'
+FROM='MP3MP3 Email Print'
+TO='Submit Corrections'
 
 while read ifile
 do
     ofile=`echo $ifile | sed 's/\.html$/\.txt/'`
     #echo $ifile "to" $ofile
-    awk "/$FROM/,/$TO/" $ifile | grep -v '<!--.*-->' | \
-	sed 's/<.*>//' | tr -d "\r" > $ofile
+    w3m -dump $ifile | awk "/$FROM/,/$TO/" | grep -v "$FROM\|$TO" > $ofile
 done
 
