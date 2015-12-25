@@ -7,7 +7,7 @@
 #   The htmlfile must come from azlyrics.com
 #
 
-FROM='MP3MP3 Email Print'
+FROM='MP3MP3 Email'
 TO='Submit Corrections'
 
 while read ifile
